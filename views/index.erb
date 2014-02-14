@@ -1,0 +1,9 @@
+<div>
+	<ul>
+ 	<% @results['docs'].each do |this| %>
+ 	<li><%= this['sourceResource']['title'] %></li>
+ 		<ul><li><%= this['sourceResource']['type'] %></li>
+ 		</ul>
+ 	<% end %>
+ </ul>
+</div>
