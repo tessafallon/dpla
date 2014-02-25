@@ -1,0 +1,10 @@
+<div>
+  <ul>
+  <% @results['docs'].each do |this| %>
+  <li><% this['sourceResource']['subject'].to_a.each do |why| %></li>
+    <li><%= why['name'] %></li>
+  <% end %>
+  <% end %>
+
+ </ul>
+</div>

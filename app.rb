@@ -6,10 +6,19 @@ Bundler.require
 class App < Sinatra::Application
 
   get '/' do 
-	 @that = DPLA.new('bugs')
-   @feet = DPLA.get(@that.this)
-   @results = @feet.parsed_response
+	 
     erb :index
+  end
+
+  get '/search' do
+    erb :search
+  end
+
+  post '/search' do
+    @that = DPLA.new(params[:query])
+    @feet = DPLA.get(@that.this)
+    @results = @feet.parsed_response
+      erb :results
   end
 end
 
