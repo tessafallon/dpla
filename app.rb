@@ -1,12 +1,18 @@
 require 'bundler'
+require './lib/DPLA.rb'
 Bundler.require
 
 
 class App < Sinatra::Application
 
-get '/' do 
-	response = HTTParty.get('http://api.dp.la/v2/items?q=kittens&api_key=c58f00a9b628ddabca2354616158d74e')
-	@results = response.parsed_response
-	erb :index
+  get '/' do 
+	 @that = DPLA.new('bugs')
+   @feet = DPLA.get(@that.this)
+   @results = @feet.parsed_response
+    erb :index
+  end
 end
-end
+
+# Search by image
+# http://dp.la/search?q=cats&type%5B%5D=image&utf8=✓
+
